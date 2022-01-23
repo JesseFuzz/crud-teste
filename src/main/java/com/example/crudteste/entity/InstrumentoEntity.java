@@ -1,6 +1,10 @@
 package com.example.crudteste.entity;
 
+import com.sun.istack.NotNull;
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -16,9 +20,20 @@ public class InstrumentoEntity {
     @Column(name = "inst_tipo")                    //esses atributos são colunas da tabela e a entity é tabela em si
     String tipo;
     @Column(name = "inst_descricao")
+    @NotNull
     String descricao;
     @Column(name = "inst_fabricacao")
     Date fabricacao;
+    @Column(name = "created_at")
+    LocalDateTime createdAt = LocalDateTime.now();
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Long getId() {
         return id;

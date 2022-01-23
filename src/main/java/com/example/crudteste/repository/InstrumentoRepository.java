@@ -9,11 +9,6 @@ import java.util.List;
 @Repository
 public interface InstrumentoRepository extends JpaRepository<InstrumentoEntity, Long> {
 
-    @Override
-    List<InstrumentoEntity> findAll();
-
     List<InstrumentoEntity> findAllByMarca(String marca);
 
-    @Override
-    List<InstrumentoEntity> findAllById(Iterable<Long> Long);
 }
