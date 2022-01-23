@@ -32,7 +32,10 @@ public class InstrumentoService {
         instRepository.deleteById(id);
     }
 
-    public void updateInst(Long instId, String editMarca) {
-
+    public InstrumentoEntity updateInst(Long instId, String editMarca){
+        InstrumentoEntity entity = instRepository.getById(instId);
+        entity.setMarca(editMarca);
+        InstrumentoEntity save = instRepository.save(entity);
+        return save;
     }
 }

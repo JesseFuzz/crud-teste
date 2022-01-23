@@ -31,12 +31,13 @@ public class InstrumentoController {
         instrumentoService.deleteInst(instId);
     }
     @PutMapping("/edit/{id}")
-    public void updateInst(@PathVariable("id") Long instId,
+    public InstrumentoEntity updateInst(@PathVariable("id") Long instId,
                            @RequestParam(name = "marca") String editMarca){
         /**
          * updateInst, metodo que criei no InstrumentoService para fazer a regra de negocio
          */
         instrumentoService.updateInst(instId, editMarca);
+        return instrumentoService.updateInst(instId, editMarca);
 
                                                 //instrumentoService pois eu vou continuar (regra de negócio) no service
                                                 //e updateInst foi criado lá no service com ALT + enter pois não existia
